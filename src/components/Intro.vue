@@ -15,6 +15,12 @@
         </div>
       </div>
       <div class="view v3">
+        <Tree></Tree>
+        <div class="text">
+          <h3>The plants are suffering</h3>
+        </div>
+      </div>
+      <div class="view v4">
         <Earth></Earth>
         <div class="text white">
           <h3>You can make a difference</h3>
@@ -55,6 +61,10 @@
 }
 
 .v3 {
+  background-color: #FEF2D8;
+}
+
+.v4 {
   background-color: #1B2B2F;
 }
 
@@ -80,6 +90,7 @@
   color: #fff;
 }
 
+/*from http://codepen.io/thejamespower/pen/OVNYLL*/
 .bt {
   margin: 10px auto;
   padding: 1vw;
@@ -93,7 +104,6 @@
   max-width: 300px;
   width: 20vw;
   min-width: 100px;
-  /*height: 50px;*/
 }
 .bt:after {
   position: absolute;
@@ -124,9 +134,10 @@ import ProgressBar from './Intro/ProgressBar';
 import Fox from './Intro/Fox';
 import Factory from './Intro/Factory';
 import Earth from './Intro/Earth';
+import Tree from './Intro/Tree';
 
 export default {
-  components: { ProgressBar, Fox, Factory, Earth },
+  components: { ProgressBar, Fox, Factory, Earth, Tree },
   data() {
     return {
       main: null,
