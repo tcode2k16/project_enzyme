@@ -1,8 +1,6 @@
 <template>
-  <div class="intro">
-  
-    <div class="main">
-      <div class="view v1">
+  <SwipeView>
+    <div class="view v1">
         <Factory></Factory>
         <div class="text white">
           <h3>Our world is polluted</h3>
@@ -28,26 +26,11 @@
         </div>
       </div>
     </div>
-    <ProgressBar :before="before" :next="next"></ProgressBar>
+  </SwipeView>
   </div>
 </template>
 
 <style scoped>
-
-.intro {
-  display: block;
-  position: relative;
-  background: black;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-}
-
-.view {
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-}
 
 .v1 {
   background-color: #455;
@@ -68,27 +51,6 @@
   background-color: #1B2B2F;
 }
 
-.main {
-  display: flex;
-  height: 100vh;
-  transition: transform 0.3s;
-  
-}
-
-.text {
-  text-align: center;
-  position: absolute;
-  display: block;
-  top: 70%;
-  width: 100vw;
-  z-index: 100;
-}
-
-/*factory*/
-
-.white {
-  color: #fff;
-}
 
 /*from http://codepen.io/thejamespower/pen/OVNYLL*/
 .bt {
@@ -127,47 +89,14 @@
 </style>
 
 <script>
-
-import $ from 'jquery';
-import Hammer from 'hammerjs';
-import ProgressBar from './Intro/ProgressBar';
+import SwipeView from './SwipeView';
 import Fox from './Intro/Fox';
 import Factory from './Intro/Factory';
 import Earth from './Intro/Earth';
 import Tree from './Intro/Tree';
 
 export default {
-  components: { ProgressBar, Fox, Factory, Earth, Tree },
-  data() {
-    return {
-      main: null,
-      len: 0,
-      transform: 0,
-    };
-  },
-  mounted() {
-    this.main = new Hammer($('.intro')[0]);
-    this.len = $('.main>.view').length;
-    $('.main').css('width', `${this.len}00vw`);
-
-
-    this.main.on('swipeleft', this.next);
-
-    this.main.on('swiperight', this.before);
-  },
-  methods: {
-    before() {
-      this.transform = Math.min(0, this.transform + 1);
-      this.update();
-    },
-    next() {
-      this.transform = Math.max(-this.len + 1, this.transform - 1);
-      this.update();
-    },
-    update() {
-      $('.main').css('transform', `translate(${this.transform}00vw,0px)`);
-    },
-  },
+  components: { Fox, Factory, Earth, Tree, SwipeView },
 };
 
 

@@ -4,11 +4,31 @@
     <div class="main">
       <slot></slot>
     </div>
-    <slot name="bar"></slot>
+    <ProgressBar :before="before" :next="next"></ProgressBar>
   </div>
 </template>
 
 <style scoped>
+
+
+.text {
+  text-align: center;
+  position: absolute;
+  display: block;
+  top: 70%;
+  width: 100vw;
+  z-index: 100;
+}
+
+.white {
+  color: #fff;
+}
+
+.view {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
 
 .swipe {
   display: block;
@@ -32,8 +52,10 @@
 
 import $ from 'jquery';
 import Hammer from 'hammerjs';
+import ProgressBar from './ProgressBar';
 
 export default {
+  components: { ProgressBar },
   data() {
     return {
       main: null,
@@ -42,7 +64,7 @@ export default {
     };
   },
   mounted() {
-    this.main = new Hammer($('.intro')[0]);
+    this.main = new Hammer($('.swipe')[0]);
     this.len = $('.main>.view').length;
     $('.main').css('width', `${this.len}00vw`);
 
