@@ -32,7 +32,7 @@
                       description="Intuitive, Fast and Composable MVVM for building interactive interfaces."
                       quote="Vue is a progressive framework for building user interfaces."
                       v-cloak inline-template>
-          <facebook>
+          <facebook style="width: 100%; height: 100%;">
             Share
           </facebook>
           </social-sharing>

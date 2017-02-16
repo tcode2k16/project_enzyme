@@ -1,7 +1,7 @@
 {
-  "name": "refresh",
+  "name": "project_enzyme",
   "version": "1.0.0",
-  "description": "A Vue.js project",
+  "description": "A social media campaign",
   "author": "tcode2k16 <tcode2k16@gmail.com>",
   "private": true,
   "scripts": {
