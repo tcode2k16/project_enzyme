@@ -1,13 +1,44 @@
 <template>
-  <SwipeView :bar="false" :bt="true" text="Daily Challenge">
+  <SwipeView :bar="false" :bt="true" :bn="-3">
     <div class="view v1">
       <Christmas></Christmas>
+      <div class="text white">
+        <h4>Daily Challenge</h4>
+      </div>
     </div>
     <div class="view v2">
+      <Christmas></Christmas>
+      <div class="text white">
+        <h4 style="padding-left: 10px; padding-right: 10px;">Step 1: recycle something that relates to Christmas</h4>
 
+      </div>
     </div>
     <div class="view v3">
+      <Christmas></Christmas>
+      <div class="text white">
+        <h4>Step 2: take a photo or video of it</h4>
 
+      </div>
+    </div>
+    <div class="view v4">
+      <Christmas></Christmas>
+      <div class="text white">
+        <h4>Step 3: share it :)</h4>
+      </div>
+      <div style="top: 80%; width: 100vw; position: absolute;">
+        <div class="bt" @click="share">
+          <social-sharing url="https://vuejs.org/"
+                      title="The Progressive JavaScript Framework"
+                      description="Intuitive, Fast and Composable MVVM for building interactive interfaces."
+                      quote="Vue is a progressive framework for building user interfaces."
+                      v-cloak inline-template>
+          <facebook>
+            Share
+          </facebook>
+          </social-sharing>
+
+        </div>
+      </div>
     </div>
   </SwipeView>
 </template>
@@ -18,21 +49,26 @@ import Christmas from './Index/Christmas';
 
 export default {
   components: { SwipeView, Christmas },
+  methods: {
+    share() {
+
+    },
+  },
 };
 </script>
 
 <style scoped>
 
-.v1 {
+.v1, .v2, .v3, .v4 {
   background-color: #1B2B2F;
 }
 
-.v2 {
-  background-color: #f00;
+a {
+  text-decoration: none;
+  color: #fff;
 }
-
-.v3 {
-  background-color: #ff0;
+a:hover {
+  color: #fff;  
 }
 
 </style>

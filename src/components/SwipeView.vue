@@ -3,12 +3,12 @@
   
     <div class="main">
       <slot></slot>
-      <div class="text white" v-if="bt">
-        <h3 class="title">{{text}}</h3>
-        <div class="bt" @click="next">
-          Next
-          <i class="fa fa-chevron-right" aria-hidden="true"></i>
-        </div>
+
+    </div>
+    <div class="mainbt" v-if="haveBt()">
+      <div class="bt" @click="next">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </div>
     </div>
     <ProgressBar v-if="bar" :before="before" :next="next"></ProgressBar>
@@ -27,6 +27,9 @@
   display: block;
   top: 70%;
   width: 100vw;
+  /*padding-left: 20px;
+  padding-right: 20px;*/
+
   z-index: 100;
 }
 
@@ -55,6 +58,14 @@
   
 }
 
+.mainbt {
+  text-align: center;
+  position: absolute;
+  display: block;
+  top: 80%;
+  width: 100vw;
+  z-index: 101;
+}
 
 
 /*from http://codepen.io/thejamespower/pen/OVNYLL*/
@@ -109,7 +120,7 @@ import ProgressBar from './ProgressBar';
 
 export default {
   components: { ProgressBar },
-  props: ['bar', 'bt', 'text'],
+  props: ['bar', 'bt', 'bn'],
   data() {
     return {
       main: null,
@@ -138,6 +149,9 @@ export default {
     },
     update() {
       $('.main').css('transform', `translate(${this.transform}00vw,0px)`);
+    },
+    haveBt() {
+      return this.bt && this.transform !== this.bn;
     },
   },
 };
