@@ -28,9 +28,9 @@
       <div style="top: 80%; width: 100vw; position: absolute;">
         <div class="bt" @click="share">
           <social-sharing url="https://vuejs.org/"
-                      title="The Progressive JavaScript Framework"
-                      description="Intuitive, Fast and Composable MVVM for building interactive interfaces."
-                      quote="Vue is a progressive framework for building user interfaces."
+                      title="Project Enzyme"
+                      description="Help spread awareness about recycling"
+                      quote="Challenge some friends to do the same :)"
                       v-cloak inline-template>
           <facebook style="width: 100%; height: 100%;">
             Share
