@@ -1,14 +1,7 @@
 <template>
-  <SwipeView :bar="false">
+  <SwipeView :bar="false" :bt="true" text="Daily Challenge">
     <div class="view v1">
       <Christmas></Christmas>
-      <div class="text white">
-        <h3 class="title">Daily Challenge</h3>
-        <div class="bt">
-          Next
-          <i class="fa fa-chevron-right" aria-hidden="true"></i>
-        </div>
-      </div>
     </div>
     <div class="view v2">
 
@@ -29,10 +22,6 @@ export default {
 </script>
 
 <style scoped>
-.title {
-  text-align: center;
-
-}
 
 .v1 {
   background-color: #1B2B2F;

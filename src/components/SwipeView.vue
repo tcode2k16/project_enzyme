@@ -3,6 +3,13 @@
   
     <div class="main">
       <slot></slot>
+      <div class="text white" v-if="bt">
+        <h3 class="title">{{text}}</h3>
+        <div class="bt" @click="next">
+          Next
+          <i class="fa fa-chevron-right" aria-hidden="true"></i>
+        </div>
+      </div>
     </div>
     <ProgressBar v-if="bar" :before="before" :next="next"></ProgressBar>
   </div>
@@ -10,6 +17,9 @@
 
 <style scoped>
 
+.title {
+  text-align: center;
+}
 
 .text {
   text-align: center;
@@ -99,7 +109,7 @@ import ProgressBar from './ProgressBar';
 
 export default {
   components: { ProgressBar },
-  props: ['bar'],
+  props: ['bar', 'bt', 'text'],
   data() {
     return {
       main: null,
