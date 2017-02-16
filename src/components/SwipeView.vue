@@ -4,7 +4,7 @@
     <div class="main">
       <slot></slot>
     </div>
-    <ProgressBar :before="before" :next="next"></ProgressBar>
+    <ProgressBar v-if="bar" :before="before" :next="next"></ProgressBar>
   </div>
 </template>
 
@@ -46,6 +46,49 @@
 }
 
 
+
+/*from http://codepen.io/thejamespower/pen/OVNYLL*/
+.bt {
+  margin: 10px auto;
+  padding: 1vw;
+  /*vertical-align: middle;*/
+  border: 2px solid #f7f7f7;
+  text-align: center;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+  transition: .3s;
+  max-width: 300px;
+  width: 20vw;
+  min-width: 100px;
+  color: #f7f7f7;
+}
+.bt:after {
+  position: absolute;
+  transition: .3s;
+  content: '';
+  width: 0;
+  left: 50%;
+  bottom: 0;
+  height: 3px;
+  background: #f7f7f7;
+}
+.bt:hover {
+  cursor: pointer;
+}
+.bt:hover:after {
+  width: 100%;
+  left: 0;
+}
+
+.link {
+  outline: none;
+  border: none;
+  text-decoration:  none;
+}
+
+
+
 </style>
 
 <script>
@@ -56,6 +99,7 @@ import ProgressBar from './ProgressBar';
 
 export default {
   components: { ProgressBar },
+  props: ['bar'],
   data() {
     return {
       main: null,

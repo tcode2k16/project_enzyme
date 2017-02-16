@@ -1,5 +1,5 @@
 <template>
-  <SwipeView>
+  <SwipeView :bar="true">
     <div class="view v1">
         <Factory></Factory>
         <div class="text white">
@@ -22,7 +22,7 @@
         <Earth></Earth>
         <div class="text white">
           <h3>You can make a difference</h3>
-          <div class="bt">Take action</div>
+          <div class="bt" @click="toIndex">Take action</div>
         </div>
       </div>
     </div>
@@ -51,41 +51,6 @@
   background-color: #1B2B2F;
 }
 
-
-/*from http://codepen.io/thejamespower/pen/OVNYLL*/
-.bt {
-  margin: 10px auto;
-  padding: 1vw;
-  /*vertical-align: middle;*/
-  border: 2px solid #f7f7f7;
-  text-align: center;
-  text-transform: uppercase;
-  position: relative;
-  overflow: hidden;
-  transition: .3s;
-  max-width: 300px;
-  width: 20vw;
-  min-width: 100px;
-}
-.bt:after {
-  position: absolute;
-  transition: .3s;
-  content: '';
-  width: 0;
-  left: 50%;
-  bottom: 0;
-  height: 3px;
-  background: #f7f7f7;
-}
-.bt:hover {
-  cursor: pointer;
-}
-.bt:hover:after {
-  width: 100%;
-  left: 0;
-}
-
-
 </style>
 
 <script>
@@ -97,6 +62,11 @@ import Tree from './Intro/Tree';
 
 export default {
   components: { Fox, Factory, Earth, Tree, SwipeView },
+  methods: {
+    toIndex() {
+      this.$router.push('/');
+    },
+  },
 };
 
 

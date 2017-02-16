@@ -40,6 +40,7 @@ export default {
 
 .rightbt, .leftbt {
   padding: 10px;
+  color: #fff;
 }
 </style>
 
