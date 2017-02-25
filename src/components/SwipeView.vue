@@ -137,8 +137,17 @@ export default {
     this.main.on('swipeleft', this.next);
 
     this.main.on('swiperight', this.before);
+
+    $(window).keydown(this.onKeydown.bind(this));
   },
   methods: {
+    onKeydown(e) {
+      if (e.keyCode === 39) {
+        this.next();
+      } else if (e.keyCode === 37) {
+        this.before();
+      }
+    },
     before() {
       this.transform = Math.min(0, this.transform + 1);
       this.update();

@@ -32,9 +32,9 @@
                       description="Help spread awareness about recycling"
                       quote="Challenge some friends to do the same :)"
                       v-cloak inline-template>
-          <facebook style="width: 100%; height: 100%;">
-            Share
-          </facebook>
+            <network network="facebook" style="width: 100%; height: 100%;" id="facebook">
+              <i class="fa fa-facebook"></i> Facebook
+            </network>
           </social-sharing>
 
         </div>
